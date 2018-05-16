@@ -6,7 +6,7 @@ ENV DEBIAN_FRONTEND noninteractive
 RUN apt-get update && \
     #
     # Node Dependencies
-    apt-get install -y --no-install-recommends git ssh bzip2 && \
+    apt-get install -y --no-install-recommends git ssh bzip2 python3 && \
     #
     # Fix -u may not run as fully supported user (no home, no /etc/passwd entry, etc). See entrypoint.sh
     apt-get install -y --no-install-recommends curl && \
@@ -28,6 +28,8 @@ RUN apt-get update && \
     #
     # Ensure workdir exists
     mkdir /workdir
+
+RUN ln -s /usr/bin/python3.4 /usr/bin/python
 
 VOLUME ["/workdir"]
 WORKDIR /workdir
