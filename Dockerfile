@@ -1,5 +1,5 @@
 # chekote/node
-FROM node:slim
+FROM node:8.11-slim
 
 ENV DEBIAN_FRONTEND noninteractive
 
